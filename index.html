@@ -23,6 +23,12 @@
                 <div class="logo">
                     <img src="ced46bcc-2659-48b2-b970-3fd352567b9d.png" alt="Soft Thread Logo" class="logo-image">
                 </div>
+
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="#" class="active">Home</a></li>
@@ -61,24 +67,7 @@
                             <div class="slide">
                                 <img src="bedsheet.jpg" alt="Luxury Towels 3">
                             </div>
-                            <div class="slide">
-                                <img src="kitchen.jpg" alt="Luxury Towels 4">
-                            </div>
-                             <div class="slide">
-                                <img src="https://www.texontowel.com/wp-content/uploads/blue-huck-surgical-towels.jpg" alt="Luxury Towels 4">
-                            </div>
-                             <div class="slide">
-                                <img src="https://cdn-ffoap.nitrocdn.com/xIvKkbNhfIlbQuxCjeioBtFoyRQOsYVI/assets/images/optimized/rev-c92460d/www.mzglobaltrading.com/wp-content/uploads/2022/04/Picture-5-9.jpg" alt="Luxury Towels 4">
-                            </div>
-                             <div class="slide">
-                                <img src="https://www.pexels.com/photo/white-and-maroon-rugs-45980/" alt="Luxury Towels 4">
-                            </div>
-                             <div class="slide">
-                                <img src="https://cdn11.bigcommerce.com/s-oausps4qgu/images/stencil/650x650/products/4247/5998/ore-bm5b__47017.1661787513.jpg?c=2" alt="Luxury Towels 4">
-                            </div>
-                             <div class="slide">
-                                <img src="https://media.istockphoto.com/id/1950578579/photo/stack-of-soft-bath-towels.jpg?s=612x612&w=0&k=20&c=hF4pzg-dMvb6LQ0FAQCeaIhaSOVacEVJ1ToucLIA5q8=" alt="Luxury Towels 4">
-                            </div>
+
 
 
 
@@ -86,7 +75,6 @@
                                 <span class="nav-dot active" data-slide="0"></span>
                                 <span class="nav-dot" data-slide="1"></span>
                                 <span class="nav-dot" data-slide="2"></span>
-                                <span class="nav-dot" data-slide="3"></span>
                             </div>
                         </div>
                     </div>
@@ -112,22 +100,10 @@
                             <div class="slide">
                                 <img src="https://www.charlestyrwhitt.pk/cdn/shop/products/ACN0047NAV_MODEL_FULL.jpg?v=1751885547&width=600" alt="Luxury Bedsheet 2">
                             </div>
-                            <div class="slide">
-                                <img src="https://k-linen.com/cdn/shop/files/WhatsApp_Image_2024-10-28_at_1.16.06_PM_1_720x.jpg?v=1748628431" alt="Luxury Bedsheet 3">
-                            </div>
-                            <div class="slide">
-                                <img src="https://cdn11.bigcommerce.com/s-oausps4qgu/images/stencil/650x650/products/4247/5998/ore-bm5b__47017.1661787513.jpg?c=2" alt="Luxury Bedsheet 3">
-                            </div>
-                            <div class="slide">
-                                <img src="https://cdn-ikpnpaj.nitrocdn.com/aUBVHuBMawWgJLMCgYxNOrMZKgTmARYd/assets/images/optimized/rev-ed37f2a/www.standardtextile.com/wp-content/uploads/2023/03/Bath-Blanket-01.jpg" alt="Luxury Bedsheet 3">
-                            </div>
-                            <div class="slide">
-                                <img src="https://www.google.com/imgres?q=turmal%20%20blanket%20hi%20resulation%20pixel%20picture&imgurl=https%3A%2F%2Fi.etsystatic.com%2F23254439%2Fr%2Fil%2F70c541%2F5038553326%2Fil_fullxfull.5038553326_lcys.jpg&imgrefurl=https%3A%2F%2Fwww.etsy.com%2Flisting%2F811441838%2F66x90-in-hospital-thermal-blanket-100&docid=VoSdlNe_LIsxJM&tbnid=z7LTbPQBUGa5uM&vet=12ahUKEwiYgrS5qPKOAxWI9wIHHSt3EsUQM3oECG0QAA..i&w=1500&h=940&hcb=2&ved=2ahUKEwiYgrS5qPKOAxWI9wIHHSt3EsUQM3oECG0QAA" alt="Luxury Bedsheet 3">
-                            </div>
+
                             <div class="slider-nav">
                                 <span class="nav-dot active" data-slide="0"></span>
                                 <span class="nav-dot" data-slide="1"></span>
-                                <span class="nav-dot" data-slide="2"></span>
                             </div>
                         </div>
                     </div>  
@@ -272,7 +248,6 @@ Soft has earned a top position among the country’s leading towels and bed line
                         <li><i class="fas fa-map-marker-alt"></i> CI A-53 Sector 6B Industrial Area, Karachi, Pakistan</li>
                         <li><i class="fas fa-phone"></i> +92 3112059077</li>
                         <li><i class="fas fa-envelope"></i> info@softthread.com</li>
-                        <li><i class="fas fa-globe"></i> www.softthread.com</li>
                     </ul>
                 </div>
             </div>
@@ -446,6 +421,34 @@ Soft has earned a top position among the country’s leading towels and bed line
         document.addEventListener('DOMContentLoaded', function() {
             initSlider('.image-slider:not(.bedsheet-slider)'); // Main slider
             initSlider('.bedsheet-slider'); // Bedsheet slider
+            
+            // Mobile menu functionality
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    menuToggle.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                });
+                
+                // Close menu when clicking on a nav link
+                const navLinks = document.querySelectorAll('.main-nav a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        mainNav.classList.remove('active');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menuToggle.contains(event.target) && !mainNav.contains(event.target)) {
+                        menuToggle.classList.remove('active');
+                        mainNav.classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
     </script>
